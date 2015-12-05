@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazing Calculator</title>
+    <link href="calculator.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="entire-page">
+        <div id="right-side">
+            <div id="calculator-background">
+                <div id = "buttons-and-screen">
+                    <div class="button symbol" onclick="clearScreen()">
+                        <h3>C</h3>
+                    </div>
+                    <div class="screen button">
+                        <h3 id="screen-for-calc">Numbers</h3>
+                    </div>
+                    <div class="button number" value="7" onclick="changeScreen(this)">
+                        <h3 value="7">7</h3>
+                    </div>
+                    <div class="button number" value="8" onclick="changeScreen(this)">
+                        <h3>8</h3>
+                    </div>
+                    <div class="button number" value="9" onclick="changeScreen(this)">
+                        <h3>9</h3>
+                    </div>
+                    <div class="button symbol" value="+" onclick="changeScreen(this)">
+                        <h3>+</h3>
+                    </div>
+                    <div class="button number" value="4" onclick="changeScreen(this)">
+                        <h3>4</h3>
+                    </div>
+                    <div class="button number" value="5" onclick="changeScreen(this)">
+                        <h3>5</h3>
+                    </div>
+                    <div class="button number" value ="6" onclick="changeScreen(this)">
+                        <h3>6</h3>
+                    </div>
+                    <div class="button symbol" value="-" onclick="changeScreen(this)">
+                        <h3>-</h3>
+                    </div>
+                    <div class = "button number" value="1" onclick="changeScreen(this)">
+                        <h3>1</h3>
+                    </div>
+                    <div class = "button number" value="2" onclick="changeScreen(this)">
+                        <h3>2</h3>
+                    </div>
+                    <div class="button number" value="3" onclick="changeScreen(this)">
+                        <h3>3</h3>
+                    </div>
+                    <div class="button symbol" value="/" onclick="changeScreen(this)">
+                        <h3>/</h3>
+                    </div>
+                    <div class="button number" value="0" onclick="changeScreen(this)">
+                        <h3>0</h3>
+                    </div>
+                    <div class="button symbol" onclick="changeScreen(this)">
+                        <h3>.</h3>
+                    </div>
+                    <div class="button symbol" onclick="onEquals()">
+                        <h3>=</h3>
+                    </div>
+                    <div class="button symbol" onclick="changeScreen(this)">
+                        <h3>*</h3>
+                    </div>
+                </div>
+            </div>
+            <div id="rounded">
+                <h1>Round Answer To:</h1>
+                <select id="rounded-selection">
+                    <option value="whole-numbers">Whole Numbers</option>
+                    <option value="tenths">Tenths</option>
+                    <option value="hundredths">Hundredths</option>
+                    <option value="thousandths">Thousandths</option>
+                </select>
+            </div>
+        </div>
+        <div id="left-side">
+            <div id="history-and-notes">
+                <h1>History</h1>
+                <div id="history-container">
+                </div>
+                <div id="notes-container">
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="calculator.js" type="text/javascript"></script>
+</body>
+</html>
