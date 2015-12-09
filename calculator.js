@@ -61,11 +61,39 @@ function addHistory() {
 
 
 function onEquals() {
+    checkForBadDecimals();
     calculate();
+    if (screenDisplay.innerHTML === "NaN") {
+        screenDisplay.innerHTML = "Numbers";
+        screenDisplay.style.visibility = "hidden";
+        alert("Oops, it looks like the result is either not a number or is too long. Try again.");
+    }
+    else {
     addHistory();
+    }
 }
 
 function round(value, toDecimals) {
     var roundedNumber = Number(Math.round(value + "e" + toDecimals) + "e-" + toDecimals); //take the value and change it to a certain number of decimal places
     return roundedNumber.toString();//turns the rounded value back into a string
+}
+
+function checkForBadDecimals() {
+    var replaceDivideSymbol = screenDisplay.innerHTML.replace("/", "*"); //replaces dividers with another symbol (difficulty with regular expressions and forward slashes)
+    var splitInputArray = replaceDivideSymbol.split(/[+*-]/);
+    for (var x = 0; x < splitInputArray.length; x++) { //look at every spot of the array
+        var decimalPoint = 0;
+        var analyzeThisBit = splitInputArray[x];
+        for (var x = 0; x < analyzeThisBit.length; x++) { //now look at every character in that spot of the array
+            if (analyzeThisBit.charAt(x) === ".") { //if the character at the given index is a period, increment the counter
+                decimalPoint++;
+            }
+            if (decimalPoint > 1) { //if there is more than one decimal point, don't allow the calculator to compute the function and let the user know there's a problem
+                screenDisplay.innerHTML = "Numbers";
+                screenDisplay.style.visibility = "hidden";
+                alert("Oops, it looks like you put too many periods. Try again.");
+                return;
+            }
+        }
+    }
 }
